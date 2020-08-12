@@ -44,6 +44,7 @@ var opArray = [];
 var numStore = '';
 var opStore = '';
 var numCount = 0;
+var total = 0;
 
 //button event listeners
 function numListeners() {
@@ -72,10 +73,20 @@ function opListeners() {
         item.addEventListener('click', function () {
             // opArray.push(item.innerHTML);
             //opClick = item.innerHTML;
-            opStore = item.innerHTML;
-            opArray.push(opStore);
-            numStore = display.innerHTML;
-            numArray.push(Number(numStore));
+            if (numCount > 0) {
+                numStore = display.innerHTML;
+                numArray.push(Number(numStore));
+                total = (operate(opArray[0],numArray[0], numArray[1]));
+                display.innerHTML = total;
+                numArray = [total];
+                opArray = [item.innerHTML]
+                numCount = 0;
+            } else {
+                opStore = item.innerHTML;
+                opArray.push(opStore);
+                numStore = display.innerHTML;
+                numArray.push(Number(numStore));
+            }
             // display.innerHTML += opClick + ' '
         })
     })
@@ -84,7 +95,12 @@ opListeners();
 
 function equals() {
     equalButton.addEventListener('click', function() {
-        alert(display.innerHTML + ' = ' + operate(opArray[0],numArray[0], numArray[1]));
+                numStore = display.innerHTML;
+                numArray.push(Number(numStore));
+                total += (operate(opArray[0],numArray[0], numArray[1]));
+                display.innerHTML = total;
+                numArray = [total];
+                numCount = 0;
     })
 }
 equals();
