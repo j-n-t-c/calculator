@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+html {
+    height: 100vh;
+}
+body { 
+    background-color: rgb(235, 198, 204);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+main {
+    margin: 100px;
+    display: grid;
+    grid-template-rows: repeat(5, 80px);
+    grid-template-columns: repeat(5, 80px);
+}
+
+button {
+    margin: 1px;
+    background-color: rgba(207, 199, 184, 0.705);
+    border-width: 0.5px;
+    border-color: rgba(255, 255, 255, 0.075);
+}
+button:hover {
+    transform: scale(1.2)
+}
+.display {
+    background-color: rgba(228, 213, 213, 0.671);
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgba(170, 153, 153, 0.781);
+    grid-column: span 5;
+}
