@@ -9,11 +9,7 @@ function multiply (a,b) {
     return a*b;
 }
 function divide (a,b) {
-    if (b==0) {
-        alert('Don\'t divide by zero!')
-    } else {
         return a/b;
-    }
 }
 function operate (op,a,b) {
     switch (op) {
@@ -27,7 +23,11 @@ function operate (op,a,b) {
             return multiply(a,b);
             break;
         case '/':
+            if (b==0) {
+                return 'error: cannot divide by 0';
+            } else {
             return divide(a,b);
+            }
             break;
     }
 }
@@ -36,33 +36,37 @@ const numButtons = document.querySelectorAll('.num');
 const opButtons = document.querySelectorAll('.operator');
 const equalButton = document.querySelector('.equals');
 const clearButton = document.querySelector('.clear');
-var numClick = '';
-var opClick = '';
+const decimalButton = document.querySelector('.decimal');
+const opDisplay = document.querySelector('.opdisplay');
 var display = document.querySelector('.display');
-var numArray = [];
-var opArray = [];
-var numStore = '';
+var numStore = [];
 var opStore = '';
-var numCount = 0;
+var paired = false;
+var eqed = false;
 var total = 0;
+var decimalOn = false
 
-//button event listeners
+
 function numListeners() {
     numButtons.forEach(item => {
         item.addEventListener('click', function() {
-            // numArray.push(Number(item.innerHTML));
-            //numClick = item.innerHTML;
-            if (display.innerHTML == '') { //if nothing has been input
-                display.innerHTML += item.innerHTML; //adds string of numbers
-            } else if (opArray.length == 0 && display.innerHTML !== ''){
+            if (item.innerHTML == '0' && display.innerHTML == '0') {
+                display.innerHTML += '';
+            } else if (item.innerHTML == '.' && display.innerHTML.includes('.') == true) {
+                display.innerHTML += '';
+            } else if (item.innerHTML == '.' && display.innerHTML == '') {
+                display.innerHTML += ('0' + item.innerHTML);
+            } else if (display.innerHTML == '') { //enters first number in blank display
                 display.innerHTML += item.innerHTML;
-             } else if (opArray.length > 0 && display.innerHTML !== '' && numCount == 0){
-                 display.innerHTML = '';
-                 display.innerHTML += item.innerHTML;
-                 numCount = 1;
-             } else if (opArray.length > 0 && numCount == 1){
+            } else if (display.innerHTML !== '' && opStore == '') { //enters addtl numbers if no op selected
                 display.innerHTML += item.innerHTML;
-             }
+            } else if (display.innerHTML !== '' && opStore !== '' && paired == false) { //clears display and enters first num clicked
+                display.innerHTML = item.innerHTML;               
+                paired = true;                                 //a pair has been input
+            } else if (display.innerHTML !== '' && opStore !== '' && paired == true){ //allows prev number to continue
+                display.innerHTML += item.innerHTML;
+            }
+                
         })
     })
 }
@@ -71,23 +75,23 @@ numListeners();
 function opListeners() {
     opButtons.forEach(item =>{
         item.addEventListener('click', function () {
-            // opArray.push(item.innerHTML);
-            //opClick = item.innerHTML;
-            if (numCount > 0) {
-                numStore = display.innerHTML;
-                numArray.push(Number(numStore));
-                total = (operate(opArray[0],numArray[0], numArray[1]));
-                display.innerHTML = total;
-                numArray = [total];
-                opArray = [item.innerHTML]
-                numCount = 0;
-            } else {
+            if (paired == false && eqed == false) {
                 opStore = item.innerHTML;
-                opArray.push(opStore);
-                numStore = display.innerHTML;
-                numArray.push(Number(numStore));
+                opDisplay.innerHTML = opStore;
+                numStore.push(Number(display.innerHTML))
+            } else if (paired == true) {
+                numStore.push(Number(display.innerHTML))
+                total = operate(opStore,numStore[0],numStore[1]);
+                display.innerHTML = parseFloat(total.toFixed(3));
+                numStore = [total];
+                opStore = item.innerHTML;
+                opDisplay.innerHTML = opStore;
+                paired = false;
+                eqed = true;
+            } else if (paired == false && eqed == true) {
+                opStore = item.innerHTML;
+                opDisplay.innerHTML = opStore;
             }
-            // display.innerHTML += opClick + ' '
         })
     })
 }
@@ -95,12 +99,17 @@ opListeners();
 
 function equals() {
     equalButton.addEventListener('click', function() {
-                numStore = display.innerHTML;
-                numArray.push(Number(numStore));
-                total += (operate(opArray[0],numArray[0], numArray[1]));
-                display.innerHTML = total;
-                numArray = [total];
-                numCount = 0;
+            if (paired == true) {
+                numStore.push(Number(display.innerHTML))
+                total = operate(opStore,numStore[0],numStore[1]);
+                display.innerHTML = parseFloat(total.toFixed(3));
+                paired = false;
+                eqed = true;
+                opDisplay.innerHTML = '';
+                numStore = [];
+                // opStore = '';
+                total = 0;
+            }
     })
 }
 equals();
@@ -108,10 +117,11 @@ equals();
 function clear() {
     clearButton.addEventListener('click', function() {
         display.innerHTML = '';
-        numClick = '';
-        opClick = '';
-        numArray = [];
-        opArray = [];
+        numStore = [];
+        opStore = '';
+        paired = false;
+        eqed = false;
+        total = 0;
     })
 }
 clear();

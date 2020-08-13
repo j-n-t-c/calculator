@@ -27,10 +27,30 @@ button {
 button:hover {
     transform: scale(1.2)
 }
-.display {
+.displaywrap {
     background-color: rgba(228, 213, 213, 0.671);
     border-style: solid;
     border-width: 0.5px;
     border-color: rgba(170, 153, 153, 0.781);
-    grid-column: span 5;
+    grid-column: span 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.display {
+    margin: 1px;
+    font-size: 50px;
+    color: rgba(160, 72, 72, 0.541);
+    align-self: center;
+}
+.opdisplay {
+    text-align: center;
+    font-size: 60px;
+    margin: 1px;
+    width: 80px;
+    background-color: rgba(228, 213, 213, 0.671);
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgba(170, 153, 153, 0.781);
+    color: grey;
 }
