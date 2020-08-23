@@ -11,15 +11,93 @@ body {
     display: flex;
     justify-content: center;
 }
-main {
-    margin: 100px;
-    display: grid;
-    grid-template-rows: repeat(5, 80px);
-    grid-template-columns: repeat(5, 80px);
-}
 
+            /*~~~~~G R I D    C O N T A I N E R~~~~~*/
+main {
+    height: 100%;
+    display: grid;
+    grid-template: repeat(6, 80px) / repeat(6, 80px);
+    grid-template-areas:
+        "d d d d o o"
+        "d d d d dvd dvd"
+        "7 8 9 m m"
+        "4 5 6 s s"
+        "1 2 3 p p"
+        "dec 0 c c c .";
+}
+             /*~~~~~G R I D    A R E A SR~~~~~*/
+.displaywrap {
+    background-color: rgba(228, 213, 213, 0.671);
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgba(170, 153, 153, 0.781);
+    grid-area: d;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: flex-end; */
+}
+.opdisplay {
+    text-align: center;
+    font-size: 60px;
+    background-color: rgba(228, 213, 213, 0.671);
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: rgba(170, 153, 153, 0.781);
+    color: grey;
+    grid-area: o;
+}
+.nine {
+    grid-area: 9;
+}
+.eight {
+    grid-area: 8;
+}
+.seven {
+    grid-area: 7;
+}
+.six {
+    grid-area: 6;
+}
+.five{
+    grid-area: 5;
+}
+.four{
+    grid-area: 4;
+}
+.three{
+    grid-area: 3;
+}
+.two{
+    grid-area: 2;
+}
+.one{
+    grid-area: 1;
+}
+.zero{
+    grid-area: 0;
+}
+.decimal{
+    grid-area: dec;
+}
+.divide{
+    grid-area: dvd;
+}
+.multiply{
+    grid-area: m;
+}
+.subtract{
+    grid-area: s;
+}
+.add{
+    grid-area: a;
+}
+.equals{
+    grid-area: eq;
+}
+.clear{
+    grid-area: c;
+}
 button {
-    margin: 1px;
     background-color: rgba(207, 199, 184, 0.705);
     border-width: 0.5px;
     border-color: rgba(255, 255, 255, 0.075);
@@ -27,30 +105,15 @@ button {
 button:hover {
     transform: scale(1.2)
 }
-.displaywrap {
-    background-color: rgba(228, 213, 213, 0.671);
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: rgba(170, 153, 153, 0.781);
-    grid-column: span 4;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
 .display {
     margin: 1px;
     font-size: 50px;
     color: rgba(160, 72, 72, 0.541);
     align-self: center;
 }
-.opdisplay {
-    text-align: center;
-    font-size: 60px;
+/* .displayout{
     margin: 1px;
-    width: 80px;
-    background-color: rgba(228, 213, 213, 0.671);
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: rgba(170, 153, 153, 0.781);
-    color: grey;
-}
+    font-size: 50px;
+    color: rgba(87, 51, 51, 0.541);
+    align-self: center;
+} */

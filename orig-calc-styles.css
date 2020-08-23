@@ -1,0 +1,383 @@
+        /*~~~~~ F O N T S ~~~~~*/
+        @font-face {
+            src: url(fonts/ZillaSlab-Bold.ttf);
+            font-family: zillabold;
+        }
+        @font-face {
+            src: url(fonts/ZillaSlab-Light.ttf);
+            font-family: zilla;
+        }
+        @font-face {
+            src: url(fonts/PassionOne-Regular.ttf);
+            font-family: passion;
+        }
+* {
+    margin: 0;
+    padding: 0;
+  }
+html {
+    height: 100vh;
+}
+body { 
+    font-family: zilla;
+    color: #4269d4bb;
+    margin: 10px 20px;
+    background-color: #5ab8eb;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+header {
+font-family: zillabold;
+color: #4269d4;
+font-variant: small-caps;
+font-size: 8vw;
+margin: 10px;
+text-align: center;
+}
+footer {
+display: flex;
+justify-content: space-between;
+margin: 20px 10px;
+}
+/*~~~~~G R I D    C O N T A I N E R~~~~~*/
+.container {
+display: grid;
+grid-gap: 2px;
+grid-template: repeat(5, minmax(50px, 100px)) / repeat(4, minmax(50px, 200px));
+grid-template-areas:
+"op display display clear"
+"seven eight nine divide"
+"four five six mult"
+"one two three plus"
+"dec zero equals minus";
+}   /*~~~~~G R I D      A R E A~~~~~*/
+    .grid-zero {grid-area: zero;}
+    .grid-one {grid-area: one;}
+    .grid-two {grid-area: two;}
+    .grid-three {grid-area: three;}
+    .grid-four {grid-area: four;}
+    .grid-five {grid-area: five;}
+    .grid-six {grid-area: six;}
+    .grid-seven {grid-area: seven;}
+    .grid-eight {grid-area: eight;}
+    .grid-nine {grid-area: nine;}
+    .grid-decimal {grid-area: dec;}
+    .grid-divide {grid-area: divide;}
+    .grid-multiply {grid-area: mult;}
+    .grid-add {grid-area: plus;}
+    .grid-subtract {grid-area: minus;}
+    .grid-clear {grid-area: clear;}
+    .grid-equals {grid-area: equals;}
+    .grid-display {grid-area: display;}
+    .grid-opdisplay {grid-area: op;}
+
+.container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+height: 100%;
+width: 100%;
+background-color: #875fcf;
+font-family: passion;
+font-weight: bolder;
+font-size: 9vw;
+color: #9fa5bd;
+border-style: none;
+border-radius: 10px;
+}
+.clear p{
+font-size: 6vw;
+width: 50%;
+margin-left: 25%;
+}
+button:hover {
+    transform: scale(1.05)
+}
+.grid-display {
+    display: block !important;
+    padding: 30px 5px 20px 0px;
+    background-color: #aec9d350;
+    color: #6176c962;
+    border-style: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: end;
+    font-size: 10vw;
+    /* color: #222a46a6; */
+}
+.grid-opdisplay {
+    padding: 40px 5px 5px 5px;
+    background-color: #aec9d350;
+    color: #875fcf;
+    border-style: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 9vw;
+    text-align: center;
+}
+@media (min-width: 319px) and (min-height: 525px) {
+    body {
+        background-color: black;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 80px)) / repeat(4, minmax(auto, 80px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    }
+}
+@media (min-width: 319px) and (min-height: 580px) {
+    body {
+        background-color: orange;
+        margin: 25px 10px 10px 10px;
+    }
+    .container {
+        padding: 20px;
+    }
+}
+@media (min-width: 375px) and (min-height: 700px) {
+    body {
+        background-color: teal;
+        margin: 50px 10px 10px 10px;
+    }
+    .container {
+        padding: 30px;
+    }
+    header {
+        font-size: 10vw;
+    }
+    .clear p {
+        font-size: 5vw;
+        margin-left: 17%;
+    }
+}
+@media (min-width: 375px) and (min-height: 800px) {
+    body {
+        background-color: rosybrown;
+        margin: 80px 10px 10px 10px;
+    }
+    .container {
+        padding: 50px 20px;
+    }
+}
+@media (min-width: 500px) and (min-height: 780px) {
+    body {
+        background-color: yellow;
+        margin: 10px 10px;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 120px)) / repeat(4, minmax(auto, 120px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    }
+}
+@media (min-width: 700px) and (min-height: 844px) {
+    body {
+        background-color: goldenrod;
+        margin: 10px 10px;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 140px)) / repeat(4, minmax(auto, 140px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    padding: 5px;
+    }
+    header {
+        font-size: 5vw;
+    }
+    .clear p{
+        font-size: 4vw;
+    }
+}
+@media (min-width: 950px) and (min-height: 1000px) {
+    body {
+        background-color: pink;
+        margin: 10px 10px;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 170px)) / repeat(4, minmax(auto, 200px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    }
+    button {
+        font-size: 100px;
+    }
+    .clear p{
+        font-size: 80px;
+        width: 50%;
+        margin-left: 15%;
+        }
+}
+@media (max-height: 321px) and (min-width: 550px) {
+    body {
+        background-color: white;
+        margin: 0px 10px;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 40px)) / repeat(4, minmax(auto, 100px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    }
+    button {
+        font-size: 5vw;
+    }
+    .clear p{
+        font-size: 5vw;
+        width: 50%;
+        margin-left: 20%;
+        }
+    header {
+        font-size: 4vw;
+        margin: 2px;
+    }
+    footer {
+        margin: 2px;
+    }
+}
+
+@media (max-height: 360px) and (min-width: 640px) {
+    body {
+        background-color: grey;
+        margin: 5px 10px;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 50px)) / repeat(4, minmax(auto, 120px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    }
+    button {
+        font-size: 5vw;
+    }
+    .clear p{
+        font-size: 5vw;
+        width: 50%;
+        margin-left: 20%;
+        }
+    header {
+        font-size: 4vw;
+    }
+}
+@media (max-height: 420px) and (min-width: 640px) {
+    body {
+        background-color: lightgrey;
+        margin: 5px 10px;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 50px)) / repeat(4, minmax(auto, 120px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    }
+    button {
+        font-size: 5vw;
+    }
+    .clear p{
+        font-size: 5vw;
+        width: 50%;
+        margin-left: 20%;
+        }
+    header {
+        font-size: 4vw;
+    }
+}
+@media (max-height: 800px) and (min-width: 900px) {
+    body {
+        background-color: lightcyan;
+        margin: 5px 10px;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 120px)) / repeat(4, minmax(auto, 180px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    }
+    button {
+        font-size: 5vw;
+    }
+    .clear p{
+        font-size: 5vw;
+        width: 50%;
+        margin-left: 20%;
+        }
+    header {
+        font-size: 4vw;
+    }
+}
+@media (max-height: 1200px) and (min-width: 1300px) {
+    body {
+        background-color: cyan;
+        margin: 5px 10px;
+    }
+    .container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, 130px)) / repeat(4, minmax(auto, 220px));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+    }
+    button {
+        font-size: 7vw;
+    }
+    .clear p{
+        font-size: 5vw;
+        width: 50%;
+        margin-left: 20%;
+        }
+    header {
+        font-size: 5vw;
+    }
+}

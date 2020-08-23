@@ -55,26 +55,27 @@ var total = 0;
 function numListeners() {
     numButtons.forEach(item => {
         item.addEventListener('click', function() {
-            display.style.color = '#6176c962';
-            if (item.innerHTML == display.innerHTML) {
-                display.style.fontWeight = 'bold';
-            } else {
-                display.style.fontWeight = '';
-            }
                                     //checking for 0s and decimals//
-            if (item.innerHTML !== '.' && display.innerHTML[0] == '0' && display.innerHTML.includes('.') == false) { //if starts with zero, can add a . but not a number
+            if (item.innerHTML !== '.' && display.innerHTML[0] == '0' && display.innerHTML.includes('.') == false) { //if starts with zero, can't add another numer
                 display.innerHTML += '';
+                // alert(1);
             } else if (item.innerHTML == '.' && display.innerHTML.includes('.') == true) { //if there's a . , can't add .
             display.innerHTML += '';
-            }
+            } else if (item.innerHTML == '.' && display.innerHTML.includes('.') == true && opStore == '') { //if there's a . , can't add .
+                display.innerHTML += '';
+                // alert(2);
+            } 
                                      //for entering first numbers up to first operation// 
              else if (display.innerHTML == '') { //enters first number in blank display
                 display.innerHTML += item.innerHTML;
+                // alert(4);
             } else if (display.innerHTML !== '' && opStore !== '' && paired == false && eqed == false && numStore.length > 0) { //clears display and enters first num clicked
                 display.innerHTML = item.innerHTML;
                 paired = true;
+                // alert(7);
             } else if (display.innerHTML !== '' && opStore !== '' && paired == true){ //allows prev number to continue
                 display.innerHTML += item.innerHTML;
+                // alert(8);
             }
                                     //if eq button was hit, adding new numbers without new operator resets
               else if (display.innerHTML !== '' && opStore == '=' && paired == false && eqed == true) {
@@ -82,8 +83,10 @@ function numListeners() {
                     eqed = false;
                     numStore = [];
                     total = 0;
+                    // alert(9);
               } else {
                 display.innerHTML += item.innerHTML;
+                // alert(10);
               }
         })
     })
@@ -94,7 +97,6 @@ numListeners();
 function opListeners() {
     opButtons.forEach(item =>{
         item.addEventListener('click', function () {
-            
             if (item.innerHTML !== "=") {
                 if (paired == false && eqed == true){
                     opStore = item.innerHTML;
@@ -109,7 +111,6 @@ function opListeners() {
                     numStore.push(Number(display.innerHTML)) //pushes sec num to array
                     total = operate(opStore,numStore[0],numStore[1]); //runs operate function
                     display.innerHTML = parseFloat(total.toFixed(3)); //displays total
-                    display.style.color = '#222a46a6';
                     numStore = [total]; //resets array with total as first index
                     opStore = item.innerHTML; //changes opStore to new op
                     opDisplay.innerHTML = opStore; //displays opStore
@@ -120,7 +121,6 @@ function opListeners() {
                     numStore.push(Number(display.innerHTML)) //pushes sec num to array
                     total = operate(opStore,numStore[0],numStore[1]); //runs operate function
                     display.innerHTML = parseFloat(total.toFixed(3)); //displays total
-                    display.style.color = '#222a46a6';
                     numStore = [total]; //resets array with total as first index
                     opStore = item.innerHTML; //changes opStore to new op
                     opDisplay.innerHTML = opStore; //displays opStore
@@ -134,6 +134,48 @@ function opListeners() {
     })
 }
 opListeners();
+
+// function opListeners() {
+//     opButtons.forEach(item =>{
+//         item.addEventListener('click', function () {
+//             if (paired == false && eqed == false) { //when first of pair entered
+//                 opStore = item.innerHTML; //adds op text to opStore
+//                 opDisplay.innerHTML = opStore; //displays opStore
+//                 numStore.push(Number(display.innerHTML)) //pushes first number to array
+//             } else if (paired == true) { //if running second number to operate
+//                 numStore.push(Number(display.innerHTML)) //pushes sec num to array
+//                 total = operate(opStore,numStore[0],numStore[1]); //runs operate function
+//                 display.innerHTML = parseFloat(total.toFixed(3)); //displays total
+//                 numStore = [total]; //resets array with total as first index
+//                 opStore = item.innerHTML; //changes opStore to new op
+//                 opDisplay.innerHTML = opStore; //displays opStore
+//                 paired = false; //resets pairing
+//             } else if (paired == false && eqed == true) { //if equals function used for total and not string of operators
+//                 opStore = item.innerHTML; 
+//                 opDisplay.innerHTML = opStore;
+//             }
+//         })
+//     })
+// }
+// opListeners();
+
+// function equals() {
+//     equalButton.addEventListener('click', function() {
+//             if (paired == true) { //if on second number and calculation already done in operator button
+//                 numStore.push(Number(display.innerHTML)) //pushes sec num to array
+//                 total = operate(opStore,numStore[0],numStore[1]); //runs operate function
+//                 display.innerHTML = parseFloat(total.toFixed(3)); //displays total
+//                 numStore = [total]; //resets array with total as first index
+//                 opStore = equalButton.innerHTML; //changes opStore to new op
+//                 opDisplay.innerHTML = opStore; //displays opStore
+//                 paired = false; //resets pairing
+//                 total = 0;
+//                 eqed = true;
+//              }
+//      })
+// }
+// equals();
+
 function clear() {
     clearButton.addEventListener('click', function() {
         display.innerHTML = '';
@@ -147,10 +189,5 @@ function clear() {
 }
 clear();
 
-//puts current year in copyright
-var x = new Date();
-var y = x.getFullYear();
-const copyrightYear = document.getElementById('copyright');
-copyrightYear.innerHTML = `© ${y}`;
 
 

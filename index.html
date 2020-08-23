@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="orig-calc-styles.css">
+    <meta name="viewport" content="width=device-width">
 </head>
 <body>
-    <header></header>
-    <main>
-        <div class="displaywrap">
-            <div class="display"></div>
-        </div>
-        <div class='opdisplay'></div>
-        <button class="1 num">1</button>
-        <button class="2 num">2</button>
-        <button class="3 num">3</button>
-        <button class="4 num">4</button>
-        <button class="5 num">5</button>
-        <button class="6 num">6</button>
-        <button class="7 num">7</button>
-        <button class="8 num">8</button>
-        <button class="9 num">9</button>
-        <button class="0 num">0</button>
-        <button class="decimal num">.</button>
-        <button class="+ operator">+</button>
-        <button class="- operator">-</button>
-        <button class="* operator">*</button>
-        <button class="/ operator">/</button>
-        <button class="= equals">=</button>
-        <button class="clear">clear</button>
+    <header><div>basic calculator</div></header>
+    <main class="container">
+        <div class="grid-display"></div>
+        <div class="grid-opdisplay"></div>
+        <div class="grid-one"><button class="num">1</button></div>
+        <div class="grid-two"><button class="num">2</button></div>
+        <div class="grid-three"><button class="num">3</button></div>
+        <div class="grid-four"><button class="num">4</button></div>
+        <div class="grid-five"><button class="num">5</button></div>
+        <div class="grid-six"><button class="num">6</button></div>
+        <div class="grid-seven"><button class="num">7</button></div>
+        <div class="grid-eight"><button class="num">8</button></div>
+        <div class="grid-nine"><button class="num">9</button></div>
+        <div class="grid-zero"><button class="num">0</button></div>
+        <div class="grid-decimal"><button class="num">.</button></div>
+        <div class="grid-add"><button class="operator">+</button></div>
+        <div class="grid-subtract"><button class="operator">-</button></div>
+        <div class="grid-multiply"><button class="operator">*</button></div>
+        <div class="grid-divide"><button class="operator">/</button></div>
+        <div class="grid-equals"><button class="operator">=</button></div>
+        <div class="grid-clear"><button class="clear"><p>clear</p></button></div>
     </main>
-    <footer></footer>
+    <footer>
+        <p>created by me (jonathan)</p>
+        <p id="copyright"></p>
+    </footer>
 <script src="main.js"></script>
 </body>
 </html>
