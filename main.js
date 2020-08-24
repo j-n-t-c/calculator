@@ -52,16 +52,9 @@ var eqed = false;
 var opeqed = false;
 var total = 0;
 
-function boobies() {
-    if (display.innerHTML == 8008135) {
-        return alert('YOU GOT TITTIES ( . )( . )')
-    }
-}
-
 function numListeners() {
     numButtons.forEach(item => {
         item.addEventListener('click', function() {
-            boobies();
             display.style.color = '#8596d862';
             if (item.innerHTML == display.innerHTML) {
                 display.style.fontWeight = 'bold';
@@ -101,7 +94,6 @@ numListeners();
 function opListeners() {
     opButtons.forEach(item =>{
         item.addEventListener('click', function () {
-            boobies();
             if (item.innerHTML !== "=") {
                 if (paired == false && eqed == true){
                     opStore = item.innerHTML;
