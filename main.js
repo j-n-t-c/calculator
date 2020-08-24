@@ -55,7 +55,7 @@ var total = 0;
 function numListeners() {
     numButtons.forEach(item => {
         item.addEventListener('click', function() {
-            display.style.color = '#6176c962';
+            display.style.color = '#8596d862';
             if (item.innerHTML == display.innerHTML) {
                 display.style.fontWeight = 'bold';
             } else {
@@ -112,7 +112,7 @@ function opListeners() {
                     display.style.color = '#222a46a6';
                     numStore = [total]; //resets array with total as first index
                     opStore = item.innerHTML; //changes opStore to new op
-                    opDisplay.innerHTML = opStore; //displays opStore
+                    opDisplay.innerHTML = '';
                     paired = false; //resets pairing
                 } 
             } else {
@@ -123,7 +123,7 @@ function opListeners() {
                     display.style.color = '#222a46a6';
                     numStore = [total]; //resets array with total as first index
                     opStore = item.innerHTML; //changes opStore to new op
-                    opDisplay.innerHTML = opStore; //displays opStore
+                    opDisplay.innerHTML = '';
                     paired = false; //resets pairing
                     eqed = true;
                      } else {

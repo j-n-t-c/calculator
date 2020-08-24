@@ -1,3 +1,16 @@
+        /*~~~~~ F O N T S ~~~~~*/
+        @font-face {
+            src: url(fonts/ZillaSlab-Bold.ttf);
+            font-family: zillabold;
+        }
+        @font-face {
+            src: url(fonts/ZillaSlab-Light.ttf);
+            font-family: zilla;
+        }
+        @font-face {
+            src: url(fonts/PassionOne-Regular.ttf);
+            font-family: passion;
+        }
 * {
     margin: 0;
     padding: 0;
@@ -6,114 +19,474 @@ html {
     height: 100vh;
 }
 body { 
-    background-color: rgb(235, 198, 204);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-            /*~~~~~G R I D    C O N T A I N E R~~~~~*/
-main {
+    font-family: zilla;
+    color: #7193f0bb;
+    margin: 20px 20px 0px 20px;
+    background-color: rgb(41, 40, 40);
     height: 100%;
     display: grid;
-    grid-template: repeat(6, 80px) / repeat(6, 80px);
-    grid-template-areas:
-        "d d d d o o"
-        "d d d d dvd dvd"
-        "7 8 9 m m"
-        "4 5 6 s s"
-        "1 2 3 p p"
-        "dec 0 c c c .";
+    grid-template: 3, 1fr 8fr 1fr / 1, 1fr;
+    justify-content: center;
 }
-             /*~~~~~G R I D    A R E A SR~~~~~*/
-.displaywrap {
-    background-color: rgba(228, 213, 213, 0.671);
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: rgba(170, 153, 153, 0.781);
-    grid-area: d;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: flex-end; */
-}
-.opdisplay {
+header {
+    max-height: 50vw;
+    font-family: zillabold;
+    color: #7193f0bb;
+    font-variant: small-caps;
+    font-size: 7vw;
     text-align: center;
-    font-size: 60px;
-    background-color: rgba(228, 213, 213, 0.671);
-    border-style: solid;
-    border-width: 0.5px;
-    border-color: rgba(170, 153, 153, 0.781);
-    color: grey;
-    grid-area: o;
 }
-.nine {
-    grid-area: 9;
+footer {
+    display: flex;
+    justify-content: space-between;
+    color: #7193f0bb;
 }
-.eight {
-    grid-area: 8;
+footer p {
+    font-size: 2vw;
+    margin: 3px 20px;
 }
-.seven {
-    grid-area: 7;
-}
-.six {
-    grid-area: 6;
-}
-.five{
-    grid-area: 5;
-}
-.four{
-    grid-area: 4;
-}
-.three{
-    grid-area: 3;
-}
-.two{
-    grid-area: 2;
-}
-.one{
-    grid-area: 1;
-}
-.zero{
-    grid-area: 0;
-}
-.decimal{
-    grid-area: dec;
-}
-.divide{
-    grid-area: dvd;
-}
-.multiply{
-    grid-area: m;
-}
-.subtract{
-    grid-area: s;
-}
-.add{
-    grid-area: a;
-}
-.equals{
-    grid-area: eq;
-}
-.clear{
-    grid-area: c;
+/*~~~~~G R I D    C O N T A I N E R~~~~~*/
+.container {
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, auto)) / repeat(4, minmax(auto, auto));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
+}   /*~~~~~G R I D      A R E A~~~~~*/
+    .grid-zero {grid-area: zero;}
+    .grid-one {grid-area: one;}
+    .grid-two {grid-area: two;}
+    .grid-three {grid-area: three;}
+    .grid-four {grid-area: four;}
+    .grid-five {grid-area: five;}
+    .grid-six {grid-area: six;}
+    .grid-seven {grid-area: seven;}
+    .grid-eight {grid-area: eight;}
+    .grid-nine {grid-area: nine;}
+    .grid-decimal {grid-area: dec;}
+    .grid-divide {grid-area: divide;}
+    .grid-multiply {grid-area: mult;}
+    .grid-add {grid-area: plus;}
+    .grid-subtract {grid-area: minus;}
+    .grid-clear {grid-area: clear;}
+    .grid-equals {grid-area: equals;}
+    .grid-display {grid-area: display;}
+    .grid-opdisplay {grid-area: op;}
+
+.container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 button {
-    background-color: rgba(207, 199, 184, 0.705);
-    border-width: 0.5px;
-    border-color: rgba(255, 255, 255, 0.075);
+    height: 100%;
+    width: 100%;
+    background-color: #875fcf;
+    font-family: passion;
+    font-weight: bolder;
+    font-size: 6vw;
+    color: #9fa5bd;
+    border-style: none;
+    border-radius: 10px;
+}
+.clear p{
+    font-size: 6vw;
+    width: 50%;
+    margin-left: 15%;
 }
 button:hover {
-    transform: scale(1.2)
+    transform: scale(1.05)
 }
-.display {
-    margin: 1px;
-    font-size: 50px;
-    color: rgba(160, 72, 72, 0.541);
-    align-self: center;
+.grid-display {
+    display: block !important;
+    padding: 30px 5px 20px 0px;
+    background-color: #aec9d350;
+    color: #8596d862;
+    border-style: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: end;
+    font-size: 10vw;
 }
-/* .displayout{
-    margin: 1px;
-    font-size: 50px;
-    color: rgba(87, 51, 51, 0.541);
-    align-self: center;
-} */
+.grid-opdisplay {
+    padding: 20px 5px 5px 5px;
+    background-color: #aec9d350;
+    color: #342668a9;
+    border-style: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 11vw;
+    text-align: center;
+}
+        /* H O R I Z O N T A L    M O B I L E    Q U E R I E S */
+@media (max-width: 653px) {
+    body {
+        margin: 0px 0px;
+    }
+    button {
+        font-size: 5vw;
+    }
+    header {
+        font-size: 3vw;
+    }
+    footer p {
+        font-size: 2vw;
+    }
+    .clear p {
+        font-size: 4vw;
+    }
+    .grid-display {
+        font-size: 5vw;
+        padding: 5px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 8vw;
+    }
+    @media (max-height: 280px) and (min-width: 650px) { /*galaxy fold*/
+        .container {
+            display: grid;
+            grid-gap: 2px;
+            grid-template: repeat(5, minmax(auto, 28px)) / repeat(4, minmax(auto, 120px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus";
+            }    
+    }
+    @media (max-height: 320px) { /*iphone 4, 5*/
+        .container {
+            display: grid;
+            grid-gap: 2px;
+            grid-template: repeat(5, minmax(auto, 45px)) / repeat(4, minmax(auto, 100px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus";
+            }
+    }        
+    @media (min-height: 320px) and (min-width: 600px) { /*surface duo, motog4 */
+        body {
+            margin: 0px 0px;
+        }
+        .container {
+            display: grid;
+            grid-gap: 3px;
+            grid-template: repeat(5, minmax(auto, 60px)) / repeat(4, minmax(auto, 120px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus";
+            }
+    }        
+}
+@media (min-width: 665px) and (max-width: 825px) { /*pixel 2, 2XL, iphone6-8&+, iphonex */
+    body {
+        margin: 0px 0px;
+    }
+    button {
+        font-size: 5vw;
+    }
+    header {
+        font-size: 5vw;
+    }
+    footer p {
+        font-size: 2vw;
+    }
+    .clear p{
+        font-size: 4vw;
+    }
+    .grid-display {
+        font-size: 5vw;
+        padding: 5px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 8vw;
+    }
+    .container {
+        display: grid;
+        grid-gap: 2px;
+        grid-template: repeat(5, minmax(auto, 55px)) / repeat(4, minmax(auto, 130px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus";
+        }    
+}
+        /* V E R T I C A L    M O B I L E    Q U E R I E S (ROYG)*/
+@media (max-width: 319px) { /*galaxy fold, very slim screens*/
+    header {
+        font-size: 10vw;
+    }
+    footer p {
+        font-size: 4.3vw;
+    }
+    .container {
+        display: grid;
+        grid-gap: 3px;
+        grid-template: repeat(5, minmax(auto, 90px)) / repeat(4, minmax(auto, 60px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus";
+        }
+    .grid-display {
+        padding: 15px 5px 5px 5px;
+        font-size: 16vw;
+    }
+    .grid-opdisplay {
+        font-size: 18vw;
+    }
+    .clear p {
+        font-size: 8vw;
+        margin-left: 10px;
+    }
+}
+@media (min-width: 319px) and (max-width: 450px) {
+    .grid-display {
+        font-size: 12vw;
+        padding: 20px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 12vw;
+    }
+    header {
+        font-size: 10vw;
+    }
+    footer p{
+        font-size: 3.5vw;
+    }
+    @media (max-height: 699px) { /*moto g4, galaxy s5, iphone 5/se & surface duo */
+        body {
+            margin: 25px 10px 10px 10px;
+        }
+        .container {
+            padding: 20px;
+            display: grid;
+            grid-gap: 3px;
+            grid-template: repeat(5, minmax(auto, 75px)) / repeat(4, minmax(auto, 75px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus";
+        }
+        .grid-display {
+            font-size: 9vw;
+        }
+        .grid-opdisplay {
+            font-size: 8vw;
+        }
+    }
+        @media (max-height: 480px) { /*iphone 4*/
+            .container {
+                padding: 20px;
+                display: grid;
+                grid-gap: 3px;
+                grid-template: repeat(5, minmax(auto, 60px)) / repeat(4, minmax(auto, 65px));
+                grid-template-areas:
+                "op display display clear"
+                "seven eight nine divide"
+                "four five six mult"
+                "one two three plus"
+                "dec zero equals minus";
+            }
+    }
+}
+@media (min-width: 375px) and (max-width: 700px) {
+    @media (min-height: 601px) and (max-height: 736px) { /*pixel 2, iphone 6/7/8 & PLUS*/
+        body {
+            height: 75%;
+        }
+        .container {
+            grid-template: repeat(5, minmax(auto, 100px)) / repeat(4, minmax(auto, 80px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus"; 
+        }
+        header {
+            font-size: 10vw;
+        }
+        .clear p {
+            font-size: 5vw;
+        }
+    } 
+    @media (min-width: 500px) and (min-height: 600px) { /*inbetween, desktop....*/
+        body {
+            height: 75%;
+        }
+        .container {
+            grid-template: repeat(5, minmax(auto, 100px)) / repeat(4, minmax(auto, 120px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus"; 
+        }
+        header {
+            font-size: 4vw;
+        }
+        footer p {
+            font-size: 1.5vw;
+        }
+        .grid-display {
+            font-size: 6vw;
+            padding: 0px;
+        }
+        .grid-opdisplay {
+            font-size: 5vw;
+        }
+        .clear p {
+            font-size: 5vw;
+        }
+    } 
+}
+@media (min-width: 375px) and (min-height: 700px) {
+    @media (min-height: 737px) and (max-height: 825px) { /*pixel 2XL, iphone X*/
+        body {
+            height: 80%;
+            margin: 30px;
+        }
+        .container {
+            grid-template: repeat(5, minmax(auto, 100px)) / repeat(4, minmax(auto, 80px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus"; 
+            margin: 20px 0px;
+        }
+        button {
+            font-size: 8vw;
+        }
+    }    
+}
+        /* H O R I Z O N T A L    T A B L E T    Q U E R I E S */
+@media (min-width: 1000px) and (min-height: 700px) {
+    button {
+        font-size: 5vw;
+    }
+    header {
+        font-size: 5vw;
+    }
+    footer p {
+        font-size: 2vw;
+    }
+    .clear p{
+        font-size: 6vw;
+    }
+    .grid-display {
+        font-size: 10vw;
+        padding: 5px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 10vw;
+    }
+    .container {
+        grid-template: repeat(5, minmax(auto, 120px)) / repeat(4, minmax(auto, 220px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus"; 
+        margin: 20px 0px;
+    }
+    @media (min-width: 1025px) {
+        .container {
+            grid-template: repeat(5, minmax(auto, 110px)) / repeat(4, minmax(auto, 250px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus"; 
+            margin: 20px 0px;
+        }
+        .grid-display {
+            font-size: 6vw;
+        }
+        .grid-opdisplay {
+            font-size: 5vw;
+        }
+    }
+}
+            /* V E R T I C A L    T A B L E T    Q U E R I E S */
+@media (min-height: 1024px) and (max-width: 768px) {
+    button {
+        font-size: 5vw;
+    }
+    header {
+        font-size: 10vw;
+    }
+    footer p {
+        font-size: 2vw;
+    }
+    .clear p{
+        font-size: 6vw;
+    }
+    .grid-display {
+        font-size: 14vw;
+        padding: 5px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 10vw;
+    }
+    .container {
+        grid-template: repeat(5, minmax(auto, 150px)) / repeat(4, minmax(auto, 175px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus"; 
+        margin: 20px 0px;
+    }
+}
+@media (min-height: 1300px) {
+    button {
+        font-size: 7vw;
+    }
+    header {
+        font-size: 10vw;
+    }
+    footer p {
+        font-size: 3.5vw;
+    }
+    .clear p{
+        font-size: 7vw;
+    }
+    .grid-display {
+        font-size: 14vw;
+        padding: 15px 30px 10px 0px;
+    }
+    .container {
+        grid-template: repeat(5, minmax(auto, 200px)) / repeat(4, minmax(auto, 220px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus"; 
+        margin: 20px 0px;
+    }
+}

@@ -20,39 +20,42 @@ html {
 }
 body { 
     font-family: zilla;
-    color: #4269d4bb;
-    margin: 10px 20px;
-    background-color: #5ab8eb;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    color: #7193f0bb;
+    margin: 20px 20px 0px 20px;
+    background-color: rgb(41, 40, 40);
+    height: 100%;
+    display: grid;
+    grid-template: 3, 1fr 8fr 1fr / 1, 1fr;
+    justify-content: center;
 }
 header {
-font-family: zillabold;
-color: #4269d4;
-font-variant: small-caps;
-font-size: 8vw;
-margin: 10px;
-text-align: center;
+    max-height: 50vw;
+    font-family: zillabold;
+    color: #7193f0bb;
+    font-variant: small-caps;
+    font-size: 7vw;
+    text-align: center;
 }
 footer {
-display: flex;
-justify-content: space-between;
-margin: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #7193f0bb;
+}
+footer p {
+    font-size: 2vw;
+    margin: 3px 20px;
 }
 /*~~~~~G R I D    C O N T A I N E R~~~~~*/
 .container {
-display: grid;
-grid-gap: 2px;
-grid-template: repeat(5, minmax(50px, 100px)) / repeat(4, minmax(50px, 200px));
-grid-template-areas:
-"op display display clear"
-"seven eight nine divide"
-"four five six mult"
-"one two three plus"
-"dec zero equals minus";
+    display: grid;
+    grid-gap: 2px;
+    grid-template: repeat(5, minmax(auto, auto)) / repeat(4, minmax(auto, auto));
+    grid-template-areas:
+    "op display display clear"
+    "seven eight nine divide"
+    "four five six mult"
+    "one two three plus"
+    "dec zero equals minus";
 }   /*~~~~~G R I D      A R E A~~~~~*/
     .grid-zero {grid-area: zero;}
     .grid-one {grid-area: one;}
@@ -80,20 +83,20 @@ grid-template-areas:
     align-items: center;
 }
 button {
-height: 100%;
-width: 100%;
-background-color: #875fcf;
-font-family: passion;
-font-weight: bolder;
-font-size: 9vw;
-color: #9fa5bd;
-border-style: none;
-border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    background-color: #875fcf;
+    font-family: passion;
+    font-weight: bolder;
+    font-size: 6vw;
+    color: #9fa5bd;
+    border-style: none;
+    border-radius: 10px;
 }
 .clear p{
-font-size: 6vw;
-width: 50%;
-margin-left: 25%;
+    font-size: 6vw;
+    width: 50%;
+    margin-left: 15%;
 }
 button:hover {
     transform: scale(1.05)
@@ -102,282 +105,388 @@ button:hover {
     display: block !important;
     padding: 30px 5px 20px 0px;
     background-color: #aec9d350;
-    color: #6176c962;
+    color: #8596d862;
     border-style: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: end;
     font-size: 10vw;
-    /* color: #222a46a6; */
 }
 .grid-opdisplay {
-    padding: 40px 5px 5px 5px;
+    padding: 20px 5px 5px 5px;
     background-color: #aec9d350;
-    color: #875fcf;
+    color: #342668a9;
     border-style: none;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    font-size: 9vw;
+    font-size: 11vw;
     text-align: center;
 }
-@media (min-width: 319px) and (min-height: 525px) {
+        /* H O R I Z O N T A L    M O B I L E    Q U E R I E S */
+@media (max-width: 653px) {
     body {
-        background-color: black;
+        margin: 0px 0px;
+    }
+    button {
+        font-size: 5vw;
+    }
+    header {
+        font-size: 3vw;
+    }
+    footer p {
+        font-size: 2vw;
+    }
+    .clear p {
+        font-size: 4vw;
+    }
+    .grid-display {
+        font-size: 5vw;
+        padding: 5px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 8vw;
+    }
+    @media (max-height: 280px) and (min-width: 650px) { /*galaxy fold*/
+        .container {
+            display: grid;
+            grid-gap: 2px;
+            grid-template: repeat(5, minmax(auto, 28px)) / repeat(4, minmax(auto, 120px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus";
+            }    
+    }
+    @media (max-height: 320px) { /*iphone 4, 5*/
+        .container {
+            display: grid;
+            grid-gap: 2px;
+            grid-template: repeat(5, minmax(auto, 45px)) / repeat(4, minmax(auto, 100px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus";
+            }
+    }        
+    @media (min-height: 320px) and (min-width: 600px) { /*surface duo, motog4 */
+        body {
+            margin: 0px 0px;
+        }
+        .container {
+            display: grid;
+            grid-gap: 3px;
+            grid-template: repeat(5, minmax(auto, 60px)) / repeat(4, minmax(auto, 120px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus";
+            }
+    }        
+}
+@media (min-width: 665px) and (max-width: 825px) { /*pixel 2, 2XL, iphone6-8&+, iphonex */
+    body {
+        margin: 0px 0px;
+    }
+    button {
+        font-size: 5vw;
+    }
+    header {
+        font-size: 5vw;
+    }
+    footer p {
+        font-size: 2vw;
+    }
+    .clear p{
+        font-size: 4vw;
+    }
+    .grid-display {
+        font-size: 5vw;
+        padding: 5px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 8vw;
     }
     .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 80px)) / repeat(4, minmax(auto, 80px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
+        display: grid;
+        grid-gap: 2px;
+        grid-template: repeat(5, minmax(auto, 55px)) / repeat(4, minmax(auto, 130px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus";
+        }    
+}
+        /* V E R T I C A L    M O B I L E    Q U E R I E S (ROYG)*/
+@media (max-width: 319px) { /*galaxy fold, very slim screens*/
+    header {
+        font-size: 10vw;
+    }
+    footer p {
+        font-size: 4.3vw;
+    }
+    .container {
+        display: grid;
+        grid-gap: 3px;
+        grid-template: repeat(5, minmax(auto, 90px)) / repeat(4, minmax(auto, 60px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus";
+        }
+    .grid-display {
+        padding: 15px 5px 5px 5px;
+        font-size: 16vw;
+    }
+    .grid-opdisplay {
+        font-size: 18vw;
+    }
+    .clear p {
+        font-size: 8vw;
+        margin-left: 10px;
     }
 }
-@media (min-width: 319px) and (min-height: 580px) {
-    body {
-        background-color: orange;
-        margin: 25px 10px 10px 10px;
+@media (min-width: 319px) and (max-width: 450px) {
+    .grid-display {
+        font-size: 12vw;
+        padding: 20px 5px 20px 0px;
     }
-    .container {
-        padding: 20px;
-    }
-}
-@media (min-width: 375px) and (min-height: 700px) {
-    body {
-        background-color: teal;
-        margin: 50px 10px 10px 10px;
-    }
-    .container {
-        padding: 30px;
+    .grid-opdisplay {
+        font-size: 12vw;
     }
     header {
         font-size: 10vw;
     }
-    .clear p {
+    footer p{
+        font-size: 3.5vw;
+    }
+    @media (max-height: 699px) { /*moto g4, galaxy s5, iphone 5/se & surface duo */
+        body {
+            margin: 25px 10px 10px 10px;
+        }
+        .container {
+            padding: 20px;
+            display: grid;
+            grid-gap: 3px;
+            grid-template: repeat(5, minmax(auto, 75px)) / repeat(4, minmax(auto, 75px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus";
+        }
+        .grid-display {
+            font-size: 9vw;
+        }
+        .grid-opdisplay {
+            font-size: 8vw;
+        }
+    }
+        @media (max-height: 480px) { /*iphone 4*/
+            .container {
+                padding: 20px;
+                display: grid;
+                grid-gap: 3px;
+                grid-template: repeat(5, minmax(auto, 60px)) / repeat(4, minmax(auto, 65px));
+                grid-template-areas:
+                "op display display clear"
+                "seven eight nine divide"
+                "four five six mult"
+                "one two three plus"
+                "dec zero equals minus";
+            }
+    }
+}
+@media (min-width: 375px) and (max-width: 700px) {
+    @media (min-height: 601px) and (max-height: 736px) { /*pixel 2, iphone 6/7/8 & PLUS*/
+        body {
+            height: 75%;
+        }
+        .container {
+            grid-template: repeat(5, minmax(auto, 100px)) / repeat(4, minmax(auto, 80px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus"; 
+        }
+        header {
+            font-size: 10vw;
+        }
+        .clear p {
+            font-size: 5vw;
+        }
+    } 
+    @media (min-width: 500px) and (min-height: 600px) { /*inbetween, desktop....*/
+        body {
+            height: 75%;
+        }
+        .container {
+            grid-template: repeat(5, minmax(auto, 100px)) / repeat(4, minmax(auto, 120px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus"; 
+        }
+        header {
+            font-size: 4vw;
+        }
+        footer p {
+            font-size: 1.5vw;
+        }
+        .grid-display {
+            font-size: 6vw;
+            padding: 0px;
+        }
+        .grid-opdisplay {
+            font-size: 5vw;
+        }
+        .clear p {
+            font-size: 5vw;
+        }
+    } 
+}
+@media (min-width: 375px) and (min-height: 700px) {
+    @media (min-height: 737px) and (max-height: 825px) { /*pixel 2XL, iphone X*/
+        body {
+            height: 80%;
+            margin: 30px;
+        }
+        .container {
+            grid-template: repeat(5, minmax(auto, 100px)) / repeat(4, minmax(auto, 80px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus"; 
+            margin: 20px 0px;
+        }
+        button {
+            font-size: 8vw;
+        }
+    }    
+}
+        /* H O R I Z O N T A L    T A B L E T    Q U E R I E S */
+@media (min-width: 1000px) and (min-height: 700px) {
+    button {
         font-size: 5vw;
-        margin-left: 17%;
-    }
-}
-@media (min-width: 375px) and (min-height: 800px) {
-    body {
-        background-color: rosybrown;
-        margin: 80px 10px 10px 10px;
-    }
-    .container {
-        padding: 50px 20px;
-    }
-}
-@media (min-width: 500px) and (min-height: 780px) {
-    body {
-        background-color: yellow;
-        margin: 10px 10px;
-    }
-    .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 120px)) / repeat(4, minmax(auto, 120px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
-    }
-}
-@media (min-width: 700px) and (min-height: 844px) {
-    body {
-        background-color: goldenrod;
-        margin: 10px 10px;
-    }
-    .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 140px)) / repeat(4, minmax(auto, 140px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
-    padding: 5px;
     }
     header {
         font-size: 5vw;
     }
-    .clear p{
-        font-size: 4vw;
+    footer p {
+        font-size: 2vw;
     }
-}
-@media (min-width: 950px) and (min-height: 1000px) {
-    body {
-        background-color: pink;
-        margin: 10px 10px;
+    .clear p{
+        font-size: 6vw;
+    }
+    .grid-display {
+        font-size: 10vw;
+        padding: 5px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 10vw;
     }
     .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 170px)) / repeat(4, minmax(auto, 200px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
+        grid-template: repeat(5, minmax(auto, 120px)) / repeat(4, minmax(auto, 220px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus"; 
+        margin: 20px 0px;
     }
-    button {
-        font-size: 100px;
-    }
-    .clear p{
-        font-size: 80px;
-        width: 50%;
-        margin-left: 15%;
+    @media (min-width: 1025px) {
+        .container {
+            grid-template: repeat(5, minmax(auto, 110px)) / repeat(4, minmax(auto, 250px));
+            grid-template-areas:
+            "op display display clear"
+            "seven eight nine divide"
+            "four five six mult"
+            "one two three plus"
+            "dec zero equals minus"; 
+            margin: 20px 0px;
         }
+        .grid-display {
+            font-size: 6vw;
+        }
+        .grid-opdisplay {
+            font-size: 5vw;
+        }
+    }
 }
-@media (max-height: 321px) and (min-width: 550px) {
-    body {
-        background-color: white;
-        margin: 0px 10px;
-    }
-    .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 40px)) / repeat(4, minmax(auto, 100px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
-    }
+            /* V E R T I C A L    T A B L E T    Q U E R I E S */
+@media (min-height: 1024px) and (max-width: 768px) {
     button {
         font-size: 5vw;
     }
-    .clear p{
-        font-size: 5vw;
-        width: 50%;
-        margin-left: 20%;
-        }
     header {
-        font-size: 4vw;
-        margin: 2px;
+        font-size: 10vw;
     }
-    footer {
-        margin: 2px;
-    }
-}
-
-@media (max-height: 360px) and (min-width: 640px) {
-    body {
-        background-color: grey;
-        margin: 5px 10px;
-    }
-    .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 50px)) / repeat(4, minmax(auto, 120px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
-    }
-    button {
-        font-size: 5vw;
+    footer p {
+        font-size: 2vw;
     }
     .clear p{
-        font-size: 5vw;
-        width: 50%;
-        margin-left: 20%;
-        }
-    header {
-        font-size: 4vw;
+        font-size: 6vw;
     }
-}
-@media (max-height: 420px) and (min-width: 640px) {
-    body {
-        background-color: lightgrey;
-        margin: 5px 10px;
+    .grid-display {
+        font-size: 14vw;
+        padding: 5px 5px 20px 0px;
+    }
+    .grid-opdisplay {
+        font-size: 10vw;
     }
     .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 50px)) / repeat(4, minmax(auto, 120px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
-    }
-    button {
-        font-size: 5vw;
-    }
-    .clear p{
-        font-size: 5vw;
-        width: 50%;
-        margin-left: 20%;
-        }
-    header {
-        font-size: 4vw;
+        grid-template: repeat(5, minmax(auto, 150px)) / repeat(4, minmax(auto, 175px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus"; 
+        margin: 20px 0px;
     }
 }
-@media (max-height: 800px) and (min-width: 900px) {
-    body {
-        background-color: lightcyan;
-        margin: 5px 10px;
-    }
-    .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 120px)) / repeat(4, minmax(auto, 180px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
-    }
-    button {
-        font-size: 5vw;
-    }
-    .clear p{
-        font-size: 5vw;
-        width: 50%;
-        margin-left: 20%;
-        }
-    header {
-        font-size: 4vw;
-    }
-}
-@media (max-height: 1200px) and (min-width: 1300px) {
-    body {
-        background-color: cyan;
-        margin: 5px 10px;
-    }
-    .container {
-    display: grid;
-    grid-gap: 2px;
-    grid-template: repeat(5, minmax(auto, 130px)) / repeat(4, minmax(auto, 220px));
-    grid-template-areas:
-    "op display display clear"
-    "seven eight nine divide"
-    "four five six mult"
-    "one two three plus"
-    "dec zero equals minus";
-    }
+@media (min-height: 1300px) {
     button {
         font-size: 7vw;
     }
-    .clear p{
-        font-size: 5vw;
-        width: 50%;
-        margin-left: 20%;
-        }
     header {
-        font-size: 5vw;
+        font-size: 10vw;
+    }
+    footer p {
+        font-size: 3.5vw;
+    }
+    .clear p{
+        font-size: 7vw;
+    }
+    .grid-display {
+        font-size: 14vw;
+        padding: 15px 30px 10px 0px;
+    }
+    .container {
+        grid-template: repeat(5, minmax(auto, 200px)) / repeat(4, minmax(auto, 220px));
+        grid-template-areas:
+        "op display display clear"
+        "seven eight nine divide"
+        "four five six mult"
+        "one two three plus"
+        "dec zero equals minus"; 
+        margin: 20px 0px;
     }
 }
